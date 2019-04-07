@@ -22,94 +22,41 @@
     </div>
     <div class="banner"></div>
     <div class="pic_banner">
-      <div class="list">
+      <div class="list" v-for="item in pic_banner">
         <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
+          <h2>{{item.biaoti}}</h2>
+          <p>{{item.miaoshu}}</p>
         </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
-      </div>
-      <div class="list">
-        <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
-        </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
-      </div>
-      <div class="list">
-        <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
-        </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
-      </div>
-      <div class="list">
-        <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
-        </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
-      </div>
-      <div class="list">
-        <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
-        </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
-      </div>
-      <div class="list">
-        <div class="text">
-          <h2>篮球</h2>
-          <p>纯白系列秒杀</p>
-        </div>
-        <img
-          src="http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
-          alt
-        >
+        <img :src="item.img" alt>
       </div>
     </div>
     <div class="hot">
-      <div class="sale">
+      <router-link to="/sale" tag="div" class="sale">
         <h2>今日优惠</h2>
         <p>EQT 5折好价</p>
         <img
           src="http://shihuo.hupucdn.com/appHome/201807/1811/1d039f64648d5e33025c747ec6420060.jpg?imageView2/2/w/120/h/120/interlace/1"
           alt
         >
-      </div>
-      <div class="sale">
-        <h2>今日优惠</h2>
-        <p>EQT 5折好价</p>
+      </router-link>
+      <router-link class="sale" tag="div" to="/tuangou">
+        <h2>限时团购</h2>
+        <p>春节不打烊</p>
         <img
-          src="http://shihuo.hupucdn.com/appHome/201807/1811/1d039f64648d5e33025c747ec6420060.jpg?imageView2/2/w/120/h/120/interlace/1"
+          src="http://shihuo.hupucdn.com/appHome/201802/0716/5d0eea37252cd190ba0975b3e5e1f49e.png?imageView2/2/w/120/h/120/interlace/1"
           alt
         >
-      </div>
-      <div class="sale">
-        <h2>今日优惠</h2>
-        <p>EQT 5折好价</p>
+      </router-link>
+      <a class="sale" href="http://m.shihuo.cn/haitao/index#qk=haitao">
+        <h2>一键海淘</h2>
+        <p>卡西欧黑金249元</p>
         <img
-          src="http://shihuo.hupucdn.com/appHome/201807/1811/1d039f64648d5e33025c747ec6420060.jpg?imageView2/2/w/120/h/120/interlace/1"
+          src="http://shihuo.hupucdn.com/appHome/201807/1310/f975458f8da63b0769796aba49271e1c.jpg?imageView2/2/w/120/h/120/interlace/1"
           alt
         >
-      </div>
+      </a>
     </div>
-    <HotActive/>
+    <HotActive v-bind="hot_active"/>
     <div id="listView">
       <div class="listView-top">
         <list/>
@@ -137,7 +84,7 @@
           </div>
         </div>
 
-       <Listsecond/>
+        <listSecond/>
 
         <div class="list-sale">
           <h2>今日优惠</h2>
@@ -162,10 +109,87 @@
 </template>
 
 <script>
-
 export default {
   name: "first",
-  components: {
+  data() {
+    return {
+      pic_banner: [
+        {
+          biaoti: "篮球",
+          miaoshu: "纯白系列秒杀",
+          img:
+            "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
+        },
+        {
+          biaoti: "跑步",
+          miaoshu: "女王节秒杀",
+          img:
+            "http://shihuo.hupucdn.com/def/20180801/a580ec1affbbf4a344974bc92969c7671533133549.jpg?imageView2/0/w/160/h/160/interlace/1"
+        },
+        {
+          biaoti: "健身",
+          miaoshu: "步瑞特装备秒杀",
+          img:
+            "http://shihuo.hupucdn.com/def/20170915/bb68abb51c246b30022b59e2a1321c7c1505460747.jpg?imageView2/0/w/160/h/160/interlace/1"
+        },
+        {
+          biaoti: "足球",
+          miaoshu: "其实是在吹总裁",
+          img:
+            "http://shihuo.hupucdn.com/trade/reposition/2017-09-13/0ed11999a6797094d6cf3df6db5f7d1a.png?imageView2/0/w/160/h/160/interlace/1"
+        },
+        {
+          biaoti: "潮流",
+          miaoshu: "78元短袖秒杀",
+          img:
+            "http://shihuoproxy.hupucdn.com/aHR0cDovL2ltZy5hbGljZG4uY29tL2ltZ2V4dHJhL2kzL1RCMVVoVUtSVlhYWFhhTVhwWFhYWFhYWFhYWF8hITItaXRlbV9waWMucG5n?imageView2/0/w/160/h/160/interlace/1"
+        },
+        {
+          biaoti: "数码",
+          miaoshu: "大屏轻薄化",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201803/3014/6585e2ef057af8a1e1f015b6f4cc6ce5.jpg?imageView2/0/w/160/h/160/interlace/1"
+        }
+      ],
+      hot_active: [
+        {
+          biaoti: "花鸟市场行",
+          miaoshu: "今天穿这样",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201811/1214/7d721a0762b1a4762557aa33c75e6404.jpg"
+        },
+        {
+          biaoti: "装备微讯",
+          miaoshu: "2分钟懂你想要",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201801/3117/dfb166bb32589d4c0c0f33613a7160cc.jpg"
+        },
+        {
+          biaoti: "热门资讯",
+          miaoshu: "最新最热门的数码资讯",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
+        },
+        {
+          biaoti: "独家折扣专场",
+          miaoshu: "买到就是赚到！",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201812/0411/965ca32793c9a42a11c0de32465d9a64.jpg"
+        },
+        {
+          biaoti: "跑步评测室",
+          miaoshu: "最炫酷的跑步装备评测",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
+        },
+        {
+          biaoti: "潮流折扣日Vol.53",
+          miaoshu: "别再错过专属优惠了",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201811/2310/18c66c0697e87440978ffdc220ee7cf9.jpg"
+        }
+      ]
+    };
   }
 };
 </script>
@@ -261,7 +285,7 @@ export default {
   .hot {
     margin: 0.06rem;
     display: flex;
-    div {
+    .sale {
       margin: 0.05rem;
       padding: 0.15rem 0;
       width: 2.35125rem;
@@ -272,7 +296,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       h2 {
-        font-size: 14px;
+        font-size: 30px;
         color: #333;
       }
       p {
@@ -285,6 +309,7 @@ export default {
     }
   }
   #listView {
+    padding-bottom: 0.9rem;
     background: #fff;
     .listView-top {
       height: 1.56075rem;
@@ -295,7 +320,7 @@ export default {
         div {
           width: 1.50075rem;
           height: 0.52025rem;
-          font-size: 12px;
+          font-size: 24px;
           color: #333;
           background: #f5f5f5;
           border-radius: 0.04rem;
@@ -328,7 +353,7 @@ export default {
           flex-direction: column;
           justify-content: space-between;
           h2 {
-            font-size: 14px;
+            font-size: 28px;
             color: #333;
             word-break: break-all;
           }
@@ -342,27 +367,27 @@ export default {
               margin-right: 0.1rem;
             }
             h3 {
-              font-size: 12px;
+              font-size: 24px;
               color: #666;
             }
           }
           .bottom {
             color: #999;
-            font-size: 10px;
+            font-size: 20px;
             border: 1px solid #a8a8a8;
-            border-radius: 0.08rem;
+            border-radius: 0.16rem;
             padding: 0 0.13333rem;
             width: 0.91rem;
           }
         }
       }
-      
+
       .list-sale {
         height: 2.66112rem;
         margin: 0.1rem 0;
         padding-left: 0.20011rem;
         h2 {
-          font-size: 12px;
+          font-size: 24px;
           color: #666;
         }
         .pic {

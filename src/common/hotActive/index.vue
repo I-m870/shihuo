@@ -66,6 +66,14 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {};
+  },
+};
+</script>
+
 
 <style lang="scss">
 .hot-activity {
@@ -74,7 +82,7 @@
   flex-direction: column;
   margin-bottom: 0.11006rem;
   h2 {
-    font-size: 14px;
+    font-size: 28px;
     margin-bottom: 0.10005rem;
     padding: 0.20011rem 0.3rem;
     font-weight: bold;
@@ -97,7 +105,8 @@
         }
       }
       h3 {
-        font-size: 12px;
+        color: #444;
+        font-size: 24px;
         font-weight: 700;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -108,7 +117,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-size: 12px;
+        font-size: 24px;
         line-height: 0.4rem;
       }
     }

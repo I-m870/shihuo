@@ -17,12 +17,20 @@
         </div>
         <div class="right">
           <img src="//sh1.hoopchina.com.cn/images/trademobile/look.png" alt>
-          <span>8502851</span>
+          <span class="watcher" flag="false">8502851</span>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data:{
+    flag:true
+  }
+}
+</script>
 
 
 <style lang="scss">
@@ -43,13 +51,13 @@
     flex-direction: column;
     justify-content: space-between;
     h2 {
-      font-size: 14px;
+      font-size: 28px;
       color: #333;
       word-break: break-all;
     }
     h3 {
       color: #666;
-      font-size: 12px;
+      font-size: 24px;
       img {
         display: inline-block;
         margin: 0 0.10005rem;
@@ -62,7 +70,7 @@
       justify-content: space-between;
       align-items: center;
       color: #999;
-      font-size: 14px;
+      font-size: 28px;
       .left {
         span {
           color: #ff4338;

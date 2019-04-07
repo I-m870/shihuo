@@ -4,13 +4,13 @@ import router from "./routers"
 import store from "./store/index"
 import Head from "@/common/head"
 import HotActive from "@/common/hotActive"
-import ListSecond from "@/common/listSecond"
+import listSecond from "@/common/listSecond"
 import List from "@/common/list"
 
 Vue.config.productionTip = false
 Vue.component("Head",Head)
 Vue.component("HotActive",HotActive)
-Vue.component("ListSecond",ListSecond)
+Vue.component("listSecond",listSecond)
 Vue.component("List",List)
 
 

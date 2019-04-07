@@ -25,7 +25,7 @@ export default {
     height: 0.8rem;
     align-items: center;
     li {
-      font-size: 13px;
+      font-size: 26px;
       font-weight: 700;
       position: relative;
       color: #333;

@@ -1,9 +1,21 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
+    <Tabbar v-if="this.$route.meta.tabBarflag"/>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+import Tabbar from "@/common/tabbar";
+export default {
+  name: "app",
+  components: {
+    Tabbar
+  }
+};
+</script>
 
+<style lang="scss">
 </style>

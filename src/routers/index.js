@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import first from './first'
+import index from './first'
 import sale from './sale'
 import find from './find'
 import equipment from './equipment'
 import more from './more'
+import tuangou from './children/tuangou'
 
 Vue.use(Router)
 
@@ -12,13 +13,14 @@ export default new Router({
   routes: [{
       path: '/',
       redirect: {
-        name: 'first'
+        name: 'index'
       }
     },
-    first,
+    index,
     sale,
     find,
     equipment,
-    more
+    more,
+    tuangou
   ]
 })
