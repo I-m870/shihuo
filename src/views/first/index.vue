@@ -84,23 +84,32 @@
           </div>
         </div>
 
-        <listSecond/>
+        <a class="list-second" v-for="(item,index) in info" :href="item.data.href">
+          <img class="t-img" :src="item.data.img" alt>
+          <div class="text">
+            <h2>{{item.data.title}}</h2>
+            <h3>
+              <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">
+              {{item.data.intro}}
+              <img
+                src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png"
+              >
+            </h3>
+            <div class="bottom">
+              <div class="left">
+                {{item.data.merchant}}
+                <span>￥{{item.data.price}}</span>
+              </div>
+            </div>
+          </div>
+        </a>
 
         <div class="list-sale">
           <h2>今日优惠</h2>
           <div class="pic">
-            <img
-              src="http://shihuo.hupucdn.com/newsIndex11/201903/3014/3625b5ceb8fe1e0c1c4b0f648257ba4d.png?imageView2/0/w/600/h/600/interlace/1"
-              alt
-            >
-            <img
-              src="http://shihuo.hupucdn.com/newsIndex11/201903/3014/3625b5ceb8fe1e0c1c4b0f648257ba4d.png?imageView2/0/w/600/h/600/interlace/1"
-              alt
-            >
-            <img
-              src="http://shihuo.hupucdn.com/newsIndex11/201903/3014/3625b5ceb8fe1e0c1c4b0f648257ba4d.png?imageView2/0/w/600/h/600/interlace/1"
-              alt
-            >
+            <a v-for="items in youhui" :href="items.href">
+              <img :src="items.img" alt>
+            </a>
           </div>
         </div>
       </div>
@@ -109,6 +118,7 @@
 </template>
 
 <script>
+import Vuex from "vuex";
 export default {
   name: "first",
   data() {
@@ -190,6 +200,15 @@ export default {
         }
       ]
     };
+  },
+  created() {
+    this.$store.dispatch("Index/getIndexActions");
+  },
+  computed: {
+    ...Vuex.mapState({
+      info: state => state.Index.data,
+      youhui: state => state.Index.youhui
+    })
   }
 };
 </script>
@@ -393,10 +412,72 @@ export default {
         .pic {
           display: flex;
           justify-content: space-around;
-          img {
-            width: 2.30113rem;
-            height: 2.30113rem;
+          a {
+            img {
+              display: block;
+              width: 2.30113rem;
+              height: 2.30113rem;
+            }
           }
+        }
+      }
+    }
+  }
+}
+
+.list-second {
+  height: 2.66112rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0.20011rem 0;
+  .t-img {
+    width: 2.13113rem;
+    height: 2.13113rem;
+    margin-right: 0.20011rem;
+  }
+  .text {
+    width: 100%;
+    height: 2.2509rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h2 {
+      font-size: 28px;
+      color: #333;
+      word-break: break-all;
+    }
+    h3 {
+      color: #666;
+      font-size: 24px;
+      img {
+        display: inline-block;
+        margin: 0 0.10005rem;
+        width: 0.18rem;
+        height: 0.18rem;
+      }
+    }
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #999;
+      font-size: 28px;
+      .left {
+        span {
+          color: #ff4338;
+          font-weight: 900;
+          font-family: "微软雅黑";
+        }
+      }
+      .right {
+        display: flex;
+        font-family: Helvetica Neue, Helvetica, serif !important;
+        img {
+          width: 0.25012rem;
+          height: 0.19rem;
+          margin-right: 0.1rem;
+          margin-top: 0.055rem;
         }
       }
     }

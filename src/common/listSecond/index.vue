@@ -1,19 +1,20 @@
 <template>
-  <div class="list-second">
+<div >
+  <div class="list-second" v-for="(item,index) in info">
     <img
       class="t-img"
-      src="http://shihuo.hupucdn.com/newsIndex11/201903/3014/7ac70b582f6dbc1f204ea19b7b07fb43.png?imageView2/0/w/600/h/600/interlace/1"
+      :src="item.data.href"
       alt
     >
     <div class="text">
-      <h2>Skechers 纯色简约短筒袜 SDSMW18B018</h2>
+      <h2>{{item.data.title}}</h2>
       <h3>
         <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">斯凯男袜新款纯色，简约短筒袜，运动袜三对装<img src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png">
       </h3>
       <div class="bottom">
         <div class="left">
-          耐克官网
-          <span>￥59</span>
+          {{merchant}}
+          <span>￥{{price}}</span>
         </div>
         <div class="right">
           <img src="//sh1.hoopchina.com.cn/images/trademobile/look.png" alt>
@@ -22,18 +23,29 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+import Vuex from "vuex"
 export default {
   data:{
     flag:true
-  }
+  },
+  created() {
+    this.$store.dispatch('Index/getIndexActions');
+
+  },
+  computed: {
+    ...Vuex.mapState({
+      info:state=>state.Index.data
+    })
+  },
 }
 </script>
 
 
-<style lang="scss">
+<style scoped lang="scss">
 .list-second {
   height: 2.66112rem;
   display: flex;

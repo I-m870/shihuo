@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import Equipment from './equipment/index'
 import More from './more'
 import Find from './find/index'
+import Index from './first/index'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -19,6 +20,7 @@ export default new Vuex.Store({
   modules:{
     Equipment,
     More,
-    Find
+    Find,
+    Index
   }
 })

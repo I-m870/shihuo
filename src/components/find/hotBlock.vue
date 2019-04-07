@@ -57,7 +57,7 @@
     </div>
   </div>
 </template>
-<script>
+<!-- <script>
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.css";
 import "swiper/dist/js/swiper.js";
@@ -75,7 +75,7 @@ window.onload = function() {
 };
 export default {
 };
-</script>
+</script>-->
 <style lang="scss">
 * {
   margin: 0;

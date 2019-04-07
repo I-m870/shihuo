@@ -26,5 +26,8 @@ export const getNowMovie = function (){
 export const getFind = function(){
     return http.get("api/find/mobileList?tag_id=283&param_str=")
 }
+export const getIndex = function(){
+    return http.get("api/homefis/getNews?pageSize=20&param_str=&type=&channel_type=")
+}
 
  
