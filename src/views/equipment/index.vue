@@ -31,6 +31,7 @@ export default {
     height: 100%;
     overflow: auto;
     display: flex;
+    background: #fff!important;
     flex-direction: column;
     justify-items: center;
     align-items: center;

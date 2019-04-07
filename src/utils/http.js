@@ -23,5 +23,8 @@ export const getNowMovie = function (){
     return http.get("/api/zhuangbei/getHomeNews")
 
 }
+export const getFind = function(){
+    return http.get("api/find/mobileList?tag_id=283&param_str=")
+}
 
  

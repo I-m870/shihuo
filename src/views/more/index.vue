@@ -15,5 +15,7 @@ export default {
 }
 </script>
 <style>
-    
+.more{
+    background: #fff!important;
+}
 </style>
