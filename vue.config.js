@@ -1,4 +1,5 @@
 module.exports={
+    publicPath:"shihuo",
     devServer:{
         proxy:{
             "/api":{
