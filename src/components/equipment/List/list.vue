@@ -63,6 +63,7 @@ export default {
 .new {
   margin-left: 0.55rem;
   margin-top: 0.2rem;
+  font-size: .32rem;
 }
 .equipmentListCon {
   display: flex;
@@ -118,7 +119,7 @@ export default {
   overflow: hidden;
   h3 {
     color: #666;
-    font-size: 12px;
+    font-size: .26rem;
     img {
       display: inline-block;
       margin: 0 0.10005rem;
