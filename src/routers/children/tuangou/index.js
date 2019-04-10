@@ -1,5 +1,5 @@
 export default {
-    path: "/tuangou",
+    path: "/tuangou/:head",
     component: () => import("@/views/children/tuangou"),
     name: "tuangou",
     meta: {

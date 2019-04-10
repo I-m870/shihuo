@@ -63,13 +63,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     h2 {
-      font-size: 28px;
+      font-size: .28rem;
       color: #333;
       word-break: break-all;
     }
     h3 {
       color: #666;
-      font-size: 24px;
+      font-size: .24rem;
       img {
         display: inline-block;
         margin: 0 0.10005rem;
@@ -82,7 +82,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       color: #999;
-      font-size: 28px;
+      font-size: .28rem;
       .left {
         span {
           color: #ff4338;

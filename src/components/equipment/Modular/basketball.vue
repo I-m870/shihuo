@@ -7,7 +7,7 @@
         </div>
         <div class="bannerCon"></div>
         <div class="h2">
-          {{items.name}}
+          {{items.name}}{{items.ename}}
           <img
             src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/ban-go_f747d60.png"
           >

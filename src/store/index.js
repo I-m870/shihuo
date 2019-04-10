@@ -4,6 +4,7 @@ import Equipment from './equipment/index'
 import More from './more'
 import Find from './find/index'
 import Index from './first/index'
+import Tuangou from './tuangou/index'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     Equipment,
     More,
     Find,
-    Index
+    Index,
+    Tuangou
   }
 })

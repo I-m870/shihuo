@@ -20,7 +20,6 @@ export default {};
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .selectLeft {
   width: 6.75rem;
@@ -40,25 +39,26 @@ export default {};
   height: 0.5498rem;
   width: 5.8898rem;
   background: #ebebeb;
-  font-size: 10px;
+  font-size: 0.1rem;
   color: #666;
-  font-size:28px;
+  font-size: 0.28rem;
   border: none;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background-image: url('http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/widget/header/search_0b8e800.png');
-  background-position: .133333rem center;
+  background-image: url("http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/widget/header/search_0b8e800.png");
+  background-position: 0.133333rem center;
   background-repeat: no-repeat;
-  padding-left:.5rem;
+  background-size: 0.3rem;
+  padding-left: 0.5rem;
 }
-.selectInput::placeholder{
-    color : #9c9c9c;
+.selectInput::placeholder {
+  color: #9c9c9c;
 }
 .selectRight {
   flex: 1;
   height: 100%;
   /* background: yellowgreen; */
-  background-image: url('http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/widget/header/head_list_4a4f511.png');
+  background-image: url("http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/widget/header/head_list_4a4f511.png");
   background-size: 100%;
   background-position-y: 3px;
 }

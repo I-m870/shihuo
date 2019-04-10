@@ -1,13 +1,21 @@
-module.exports={
-    publicPath:"shihuo",
-    devServer:{
-        proxy:{
-            "/api":{
-                target:"http://m.shihuo.cn",//代理的是域名
-                changeOrigin:true,//是否允许跨域（是否允许改变自己本地的域名）
-                pathRewrite:{
-                    "^/api":"",//是否替换域名的标志，有这个标志的路径就表示这个路径需要替换
-                }
+module.exports = {
+    devServer: {
+        proxy: {
+            "/homefis": {
+                target: "http://m.shihuo.cn", //代理的是域名
+                changeOrigin: true, //是否允许跨域（是否允许改变自己本地的域名）
+            },
+            "/find": {
+                target: "http://m.shihuo.cn", //代理的是域名
+                changeOrigin: true, //是否允许跨域（是否允许改变自己本地的域名）
+            },
+            "/zhuangbei": {
+                target: "http://m.shihuo.cn", //代理的是域名
+                changeOrigin: true, //是否允许跨域（是否允许改变自己本地的域名）
+            },
+            "/tuangou": {
+                target: "http://m.shihuo.cn",
+                changeOrigin: true, //是否允许跨域（是否允许改变自己本地的域名）
             }
         }
     }

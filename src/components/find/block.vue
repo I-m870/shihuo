@@ -48,6 +48,8 @@ export default {
         color: #666;
         font-size: .24rem;
         img{
+            width: 0.73037rem;
+            height: 0.62025rem;
             margin-top: .15rem;
         }
         span{

@@ -46,7 +46,7 @@ export default {
                 // width:4.625rem;
                 color:#fff;
                 margin-top:0.1rem;
-                font-size: 0.24px;
+                font-size: 0.24rem;
             }
         }
     }

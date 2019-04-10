@@ -1,9 +1,19 @@
 <template>
   <div class="index">
-    <Head/>
+    <Head :v-bind:head="this.head"/>
     <div id="con">
       <div class="con">
-        <div class="banner"></div>
+        <div class="swiper-container banner" ref="banner">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="items in banner">
+              <a :href="items.href">
+                <img :src="items.img">
+              </a>
+            </div>
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+        </div>
         <div class="titpic">
           <img
             src="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/tuangou/index/titpic_5b9093a.png"
@@ -67,107 +77,24 @@
           </ul>
         </div>
         <div class="list_box">
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
+          <div class="box" v-for="item in info">
+            <a :href="item.url">
+              <img :src="item.img_path">
+              <div class="txt">
+                <h2>{{item.title}}</h2>
+                <div class="price">
+                  <span class="zhe">{{item.discount}}折</span>
+                  <div class="right">
+                    <span class="oP">￥{{item.original_price}}</span>
+                    <span class="nP">￥{{item.price}}</span>
+                  </div>
                 </div>
+                <p class="num">
+                  已关注人数
+                  <span>{{item.attend_count}}</span>
+                </p>
               </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
-                </div>
-              </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
-                </div>
-              </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
-                </div>
-              </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
-                </div>
-              </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
-          </div>
-          <div class="box">
-            <img src="http://shihuo.hupucdn.com/Fu2hk0aPhlaU4TyeIy5frayB4glA">
-            <div class="txt">
-              <h2>NOT TO EXCEED夏季新款纯色T恤男士宽松全棉短袖休闲纯色打底衫潮</h2>
-              <div class="price">
-                <span class="zhe">1折</span>
-                <div class="right">
-                  <span class="oP">￥199</span>
-                  <span class="nP">￥20</span>
-                </div>
-              </div>
-              <p class="num">
-                已关注人数
-                <span>106</span>
-              </p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -176,10 +103,68 @@
 </template>
 
 <script>
+import Vuex from "vuex";
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
 export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  data() {
+    return {
+      banner: [
+        {
+          href: "http://t.shihuo.cn/557.html#qk=banner&order=5",
+          img:
+            "http://shihuo.hupucdn.com/tuangouIndexm/201904/0315/dbe0ee02cfcd408441b8d83d136e3a33.png"
+        },
+        {
+          href:
+            "http://t.shihuo.cn/642.html?shihuo_special_test=1#qk=banner&order=1",
+          img:
+            "http://shihuo.hupucdn.com/tuangouIndexm/201904/0910/fd2c6164dde20bd64b80e2cff0be3ebf.jpg"
+        },
+        {
+          href:
+            "http://t.shihuo.cn/636.html?shihuo_special_test=1#qk=banner&order=2",
+          img:
+            "http://shihuo.hupucdn.com/tuangouIndexm/201904/0418/433554662e9b48e110bce780cd82f0ae.png"
+        },
+        {
+          href:
+            "https://www.amazon.cn/b/ref=as_li_ss_tl?_encoding=UTF8&camp=536&creative=3132&linkCode=ur2&node=1992452071&tag=shihuo-23#qk=banner&order=3",
+          img:
+            "http://shihuo.hupucdn.com/tuangouIndexm/201903/1214/ba9b2fb1bc38ef913fb89864efd87439.png"
+        },
+        {
+          href: "http://t.shihuo.cn/m/640.html#qk=banner&order=4",
+          img:
+            "http://shihuo.hupucdn.com/tuangouIndexm/201904/0910/15a905bd00591b55f1d3dd74cac7f902.png"
+        }
+      ]
+    };
+  },
+  created() {
+    this.$store.dispatch("Tuangou/getTuangouActions");
+    console.log(info)
+  },
+  computed: {
+    ...Vuex.mapState({
+      info: state => state.Tuangou.data
+    })
+  },
+  mounted() {
+    new Swiper(this.$refs.banner, {
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
   }
 };
 </script>
@@ -199,9 +184,21 @@ export default {
       display: flex;
       flex-direction: column;
       .banner {
-        height: 2.912rem;
-        background: #000;
-        border-bottom: 1px solid #e6e6e6;
+        height: 2.7014rem;
+        width: 100%;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .swiper-pagination {
+          text-align: right;
+          padding-right: 0.2rem;
+        }
       }
       .titpic {
         height: 0.63626rem;
@@ -224,15 +221,15 @@ export default {
           align-items: center;
           background-size: 3%;
           h2 {
-            font-size: 32px;
-            line-height: 30px;
+            font-size: .32rem;
+            line-height: .30rem;
             color: #ff4338;
             font-weight: 900;
-            padding: .1rem 0;
+            padding: 0.1rem 0;
           }
           p {
             width: 100%;
-            font-size: 28px;
+            font-size: .28rem;
             color: #666;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -241,11 +238,11 @@ export default {
             font-family: Helvetica, sans-serif;
           }
           .price {
-            padding: .05rem 0;
+            padding: 0.05rem 0;
             margin: 8px 0;
             color: #ff4338;
             .kill {
-              font-size: 32px;
+              font-size: .32rem;
               font-weight: bolder;
               font-family: Helvetica, sans-serif;
             }
@@ -254,7 +251,7 @@ export default {
               padding: 0 4px;
               border-radius: 4px;
               vertical-align: text-bottom;
-              font-size: 22px;
+              font-size: .22rem;
               margin-left: 5px;
             }
           }
@@ -309,7 +306,7 @@ export default {
             height: 0.48rem;
             line-height: 0.48rem;
             border-right: 1px solid #e8e8e8;
-            font-size: 28px;
+            font-size: .28rem;
             padding: 0 0.11rem;
             span {
               background: url(//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/tuangou/index/menu_up_616fa17.png)
@@ -333,6 +330,9 @@ export default {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        a{
+          color: #444;
+        }
         .box {
           background: #fff;
           box-shadow: 0 4px 4px rgba(0, 0, 0, 0.16);
@@ -347,9 +347,9 @@ export default {
           .txt {
             padding: 0 0.2rem;
             h2 {
-              font-size: 28px;
+              font-size: .28rem;
               overflow: hidden;
-              height: 0.78rem;
+              height: 0.75rem;
               width: 100%;
             }
             .price {
@@ -357,6 +357,8 @@ export default {
               justify-content: space-between;
               margin: 5px 0;
               .zhe {
+                display: flex;
+                align-items: center;
                 background: #ff4338;
                 padding: 2px 5px;
                 color: #fff;
@@ -369,7 +371,7 @@ export default {
                   margin-right: 10px;
                 }
                 .nP {
-                  font-size: 32px;
+                  font-size: .32rem;
                   color: #ff4338;
                   font-weight: bold;
                 }
@@ -378,12 +380,12 @@ export default {
             .num {
               padding-top: 0.2rem;
               margin-top: 0.2rem;
-              height: 30px;
-              line-height: 30px;
+              height: .3rem;
+              line-height:.3rem;
               border-top: 1px solid #e6e6e6;
               color: #999;
               text-align: right;
-              font-size: 26px;
+              font-size: .26rem;
             }
           }
         }

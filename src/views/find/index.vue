@@ -1,5 +1,6 @@
 <template>
   <div class="find">
+    <Banner/>
     <Block/>
     <HotBlock/>
     <List/>
@@ -7,22 +8,24 @@
 </template>
 
 <script>
-import Block from '@/components/find/block.vue'
-import HotBlock from '@/components/find/hotBlock.vue'
-import List from '@/components/find/list.vue'
+import Block from "@/components/find/block.vue";
+import HotBlock from "@/components/find/hotBlock.vue";
+import List from "@/components/find/list.vue";
+import Banner from "@/components/find/banner.vue";
 export default {
   name: "first",
   components: {
     Block,
     HotBlock,
-    List
+    List,
+    Banner
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.find{
-  background: #fff!important;
+.find {
+  background: #fff !important;
 }
 </style>

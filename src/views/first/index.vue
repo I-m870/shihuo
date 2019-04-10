@@ -20,15 +20,30 @@
         </div>
       </form>
     </div>
-    <div class="banner"></div>
+    <div class="swiper-container banner" ref="banner">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="items in banner">
+          <a :href="items.href">
+            <img :src="items.img">
+          </a>
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
     <div class="pic_banner">
-      <div class="list" v-for="item in pic_banner">
+      <router-link
+        tag="div"
+        :to="{name:'zhuanqu',params:{head:item.biaoti+'专区'}}"
+        class="list"
+        v-for="item in pic_banner"
+      >
         <div class="text">
           <h2>{{item.biaoti}}</h2>
           <p>{{item.miaoshu}}</p>
         </div>
         <img :src="item.img" alt>
-      </div>
+      </router-link>
     </div>
     <div class="hot">
       <router-link to="/sale" tag="div" class="sale">
@@ -39,7 +54,7 @@
           alt
         >
       </router-link>
-      <router-link class="sale" tag="div" to="/tuangou">
+      <router-link class="sale" tag="div" :to="{name:'tuangou',params:{head:this.head}}">
         <h2>限时团购</h2>
         <p>春节不打烊</p>
         <img
@@ -56,7 +71,7 @@
         >
       </a>
     </div>
-    <HotActive v-bind="hot_active"/>
+    <HotActive v-bind:active="this.hot_active"/>
     <div id="listView">
       <div class="listView-top">
         <list/>
@@ -91,9 +106,7 @@
             <h3>
               <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">
               {{item.data.intro}}
-              <img
-                src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png"
-              >
+              <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png">
             </h3>
             <div class="bottom">
               <div class="left">
@@ -119,10 +132,14 @@
 
 <script>
 import Vuex from "vuex";
+import Swiper from "swiper";
+import "swiper/dist/css/swiper.min.css";
+
 export default {
   name: "first",
   data() {
     return {
+      head:"识货-团购",
       pic_banner: [
         {
           biaoti: "篮球",
@@ -163,36 +180,42 @@ export default {
       ],
       hot_active: [
         {
+          href: "http://www.shihuo.cn/article/detail/18871.html",
           biaoti: "花鸟市场行",
           miaoshu: "今天穿这样",
           img:
             "http://shihuo.hupucdn.com/appZone/201811/1214/7d721a0762b1a4762557aa33c75e6404.jpg"
         },
         {
+          href: "http://www.shihuo.cn/column/227.html",
           biaoti: "装备微讯",
           miaoshu: "2分钟懂你想要",
           img:
             "http://shihuo.hupucdn.com/appZone/201801/3117/dfb166bb32589d4c0c0f33613a7160cc.jpg"
         },
         {
+          href: "https://m.shihuo.cn/column/245.html",
           biaoti: "热门资讯",
           miaoshu: "最新最热门的数码资讯",
           img:
             "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
         },
         {
+          href: "http://t.shihuo.cn/m/538.html",
           biaoti: "独家折扣专场",
           miaoshu: "买到就是赚到！",
           img:
             "http://shihuo.hupucdn.com/appZone/201812/0411/965ca32793c9a42a11c0de32465d9a64.jpg"
         },
         {
+          href: "http://www.shihuo.cn/column/137.html",
           biaoti: "跑步评测室",
           miaoshu: "最炫酷的跑步装备评测",
           img:
             "http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
         },
         {
+          href: "http://www.shihuo.cn/article/detail/21332.html",
           biaoti: "潮流折扣日Vol.53",
           miaoshu: "别再错过专属优惠了",
           img:
@@ -207,8 +230,21 @@ export default {
   computed: {
     ...Vuex.mapState({
       info: state => state.Index.data,
-      youhui: state => state.Index.youhui
+      youhui: state => state.Index.youhui,
+      banner: state => state.Index.banner
     })
+  },
+  mounted() {
+    new Swiper(this.$refs.banner, {
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
   }
 };
 </script>
@@ -220,12 +256,14 @@ export default {
   flex-direction: column;
   width: 100%;
   .search_bar {
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.4), transparent);
     display: flex;
     height: 0.92026rem;
     width: 100%;
     position: absolute;
     top: 0;
     align-items: center;
+    z-index: 10;
     .searchBox {
       // justify-content: space-between;
       display: flex;
@@ -265,7 +303,20 @@ export default {
   }
   .banner {
     height: 3.8rem;
-    background: #000;
+    width: 100%;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .swiper-pagination {
+      text-align: right;
+      padding-right: 0.2rem;
+    }
   }
   .pic_banner {
     margin-top: 0.2rem;
@@ -315,7 +366,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       h2 {
-        font-size: 30px;
+        font-size: 0.3rem;
         color: #333;
       }
       p {
@@ -339,7 +390,7 @@ export default {
         div {
           width: 1.50075rem;
           height: 0.52025rem;
-          font-size: 24px;
+          font-size: 0.24rem;
           color: #333;
           background: #f5f5f5;
           border-radius: 0.04rem;
@@ -372,7 +423,7 @@ export default {
           flex-direction: column;
           justify-content: space-between;
           h2 {
-            font-size: 28px;
+            font-size: 0.28rem;
             color: #333;
             word-break: break-all;
           }
@@ -386,17 +437,18 @@ export default {
               margin-right: 0.1rem;
             }
             h3 {
-              font-size: 24px;
+              font-size: 0.24rem;
               color: #666;
             }
           }
           .bottom {
+            text-align: center;
             color: #999;
-            font-size: 20px;
+            font-size: 0.2rem;
             border: 1px solid #a8a8a8;
-            border-radius: 0.16rem;
+            border-radius: 0.32rem;
             padding: 0 0.13333rem;
-            width: 0.91rem;
+            width: 1rem;
           }
         }
       }
@@ -406,7 +458,7 @@ export default {
         margin: 0.1rem 0;
         padding-left: 0.20011rem;
         h2 {
-          font-size: 24px;
+          font-size: 0.24rem;
           color: #666;
         }
         .pic {
@@ -431,7 +483,7 @@ export default {
   justify-content: space-between;
   border-bottom: 1px solid #e6e6e6;
   padding: 0.20011rem 0;
-  .t-img {
+  img {
     width: 2.13113rem;
     height: 2.13113rem;
     margin-right: 0.20011rem;
@@ -443,13 +495,13 @@ export default {
     flex-direction: column;
     justify-content: space-between;
     h2 {
-      font-size: 28px;
+      font-size: 0.28rem;
       color: #333;
       word-break: break-all;
     }
     h3 {
       color: #666;
-      font-size: 24px;
+      font-size: 0.24rem;
       img {
         display: inline-block;
         margin: 0 0.10005rem;
@@ -462,7 +514,7 @@ export default {
       justify-content: space-between;
       align-items: center;
       color: #999;
-      font-size: 28px;
+      font-size: 0.24rem;
       .left {
         span {
           color: #ff4338;
