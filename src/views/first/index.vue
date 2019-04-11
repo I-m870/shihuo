@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <Loading v-show="isLoading"/>
     <div class="search_bar">
       <form
         class="searchBox"
@@ -139,6 +140,7 @@ export default {
   name: "first",
   data() {
     return {
+      isLoading:true,
       head:"识货-团购",
       pic_banner: [
         {
@@ -226,6 +228,11 @@ export default {
   },
   created() {
     this.$store.dispatch("Index/getIndexActions");
+  },
+  watch: {
+    info(){
+      this.isLoading=false
+    }
   },
   computed: {
     ...Vuex.mapState({

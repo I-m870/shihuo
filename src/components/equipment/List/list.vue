@@ -2,6 +2,7 @@
 
 <template>
   <div>
+    <Loading v-show="isLoading"/>
     <h2 class="new">最新推荐</h2>
     <div class="list-second" v-for="(items,index) in infoList">
       <img class="t-img" :src="items.data.img" alt>
@@ -32,9 +33,16 @@
 import Vuex from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      isLoading:true
+    };
   },
   methods: {},
+  watch: {
+    infoList(){
+      this.isLoading=false
+    }
+  },
   computed: {
     ...Vuex.mapState({
       infoList: state => state.Equipment.infoList
