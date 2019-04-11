@@ -3,6 +3,7 @@ export default {
     component: () => import("@/views/sale"),
     name: "sale",
     meta: {
-        tabBarflag: true
+        tabBarflag: true,
+        title:"优惠"
     }
 }

@@ -12,6 +12,7 @@ export default {
     // }]
 
     meta: {
-        tabBarflag: true
+        tabBarflag: true,
+        title:"首页"
     }
 }

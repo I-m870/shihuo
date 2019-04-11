@@ -57,6 +57,7 @@ $color: #ff4338;
   left: 0;
   box-shadow: 0 0 0.32rem 0.02667rem rgba(0, 0, 0, 0.51);
   background-color: rgba(255, 255, 255, 0.96);
+  z-index: 999;
   ul {
     width: 100%;
     align-items: center;

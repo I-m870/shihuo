@@ -75,7 +75,6 @@ export default {
   created() {
     let datas = this.$store.state.Equipment.Modular;
     this.info = datas;
-    console.log(this.info);
   },
   components: {
     Bgarea
@@ -86,6 +85,7 @@ export default {
 .Modular {
   // min-height: 5.4rem;
   width: 100%;
+  background: #fff;
 }
 .banner {
   width: 100%;

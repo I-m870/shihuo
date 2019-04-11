@@ -3,6 +3,7 @@ export default {
     component: () => import("@/views/children/tuangou"),
     name: "tuangou",
     meta: {
-        tabBarFlag: false
+        tabBarFlag: false,
+        title:"识货-团购"
     }
 }

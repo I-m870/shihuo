@@ -3,21 +3,30 @@
     <ul class="tabCon">
       <li class="tabLi">
         <a href="javascript:;" class="tabA">
-          <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-1_f79f337.png" class="tabImgH">
+          <img
+            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-1_f79f337.png"
+            class="tabImgH"
+          >
           <!-- <br> -->
           <span class="tabSpan">热销排行</span>
         </a>
       </li>
-       <li class="tabLi">
+      <li class="tabLi">
         <a href="javascript:;" class="tabA">
-          <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-2_4b3ef21.png" class="tabImgP">
+          <img
+            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-2_4b3ef21.png"
+            class="tabImgP"
+          >
           <!-- <br> -->
           <span class="tabSpan">好价精选</span>
         </a>
       </li>
       <li class="tabLi li3">
         <a href="javascript:;" class="tabA">
-          <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-3_680282c.png" class="tabImg">
+          <img
+            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/zhuangbei-index-menu-3_680282c.png"
+            class="tabImg"
+          >
           <!-- <br> -->
           <span class="tabSpan">当季新款</span>
         </a>
@@ -73,7 +82,6 @@ export default {
   align-items: center;
 }
 .li3 {
-    
   border-right: none;
 }
 .tabA {
@@ -87,18 +95,18 @@ export default {
 .tabImg {
   width: 0.43rem;
   height: 0.39rem;
-  
+
   margin-bottom: 10px;
 }
-.tabImgP{
-  width: 0.40rem;
+.tabImgP {
+  width: 0.4rem;
   height: 0.45rem;
   margin-bottom: 10px;
 }
-.tabImgH{
-    width:0.8rem;
-    height: 0.42rem;
-    margin-left:12px;
+.tabImgH {
+  width: 0.8rem;
+  height: 0.42rem;
+  margin-left: 12px;
   margin-bottom: 10px;
 }
 </style>

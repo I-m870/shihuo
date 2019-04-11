@@ -3,6 +3,7 @@ export default {
     component: () => import("@/views/equipment"),
     name: "equipment",
     meta: {
-        tabBarflag: true
+        tabBarflag: true,
+        title:"装备"
     }
 }

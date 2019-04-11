@@ -33,18 +33,22 @@
             >
           </div>
           <div class="right">
-            <a href="javascript:;">
+            <a href="http://t.shihuo.cn/563.html#qk=topic&order=1">
               <img
                 src="http://shihuo.hupucdn.com/tuangoufocusm/201901/0817/90014d2ada90c0feb523d59be73feab1.jpg"
               >
             </a>
             <div class="bottom">
-              <a href="javascript:;">
+              <a
+                href="https://www.amazon.cn/b/ref=as_li_ss_tl?_encoding=UTF8&camp=536&creative=3132&linkCode=ur2&node=1986250071&tag=shihuo-23#qk=topic&order=2"
+              >
                 <img
                   src="http://shihuo.hupucdn.com/tuangoufocusm/201903/1214/269a01b84aa428c54dc26cd5c65ab0dc.png"
                 >
               </a>
-              <a href="javascript:;">
+              <a
+                href="https://www.amazon.cn/b/ref=as_li_ss_tl?_encoding=UTF8&camp=536&creative=3132&linkCode=ur2&node=1994347071&tag=shihuo-23#qk=topic&order=3"
+              >
                 <img
                   src="http://shihuo.hupucdn.com/tuangoufocusm/201903/1214/52341068953dfbd888632eaccb81adc0.png"
                 >
@@ -147,7 +151,7 @@ export default {
   },
   created() {
     this.$store.dispatch("Tuangou/getTuangouActions");
-    console.log(info)
+    console.log(info);
   },
   computed: {
     ...Vuex.mapState({
@@ -221,15 +225,15 @@ export default {
           align-items: center;
           background-size: 3%;
           h2 {
-            font-size: .32rem;
-            line-height: .30rem;
+            font-size: 0.32rem;
+            line-height: 0.3rem;
             color: #ff4338;
             font-weight: 900;
             padding: 0.1rem 0;
           }
           p {
             width: 100%;
-            font-size: .28rem;
+            font-size: 0.28rem;
             color: #666;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -242,7 +246,7 @@ export default {
             margin: 8px 0;
             color: #ff4338;
             .kill {
-              font-size: .32rem;
+              font-size: 0.32rem;
               font-weight: bolder;
               font-family: Helvetica, sans-serif;
             }
@@ -251,7 +255,7 @@ export default {
               padding: 0 4px;
               border-radius: 4px;
               vertical-align: text-bottom;
-              font-size: .22rem;
+              font-size: 0.22rem;
               margin-left: 5px;
             }
           }
@@ -306,7 +310,7 @@ export default {
             height: 0.48rem;
             line-height: 0.48rem;
             border-right: 1px solid #e8e8e8;
-            font-size: .28rem;
+            font-size: 0.28rem;
             padding: 0 0.11rem;
             span {
               background: url(//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/tuangou/index/menu_up_616fa17.png)
@@ -330,7 +334,7 @@ export default {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        a{
+        a {
           color: #444;
         }
         .box {
@@ -347,7 +351,7 @@ export default {
           .txt {
             padding: 0 0.2rem;
             h2 {
-              font-size: .28rem;
+              font-size: 0.28rem;
               overflow: hidden;
               height: 0.75rem;
               width: 100%;
@@ -371,7 +375,7 @@ export default {
                   margin-right: 10px;
                 }
                 .nP {
-                  font-size: .32rem;
+                  font-size: 0.32rem;
                   color: #ff4338;
                   font-weight: bold;
                 }
@@ -380,12 +384,12 @@ export default {
             .num {
               padding-top: 0.2rem;
               margin-top: 0.2rem;
-              height: .3rem;
-              line-height:.3rem;
+              height: 0.3rem;
+              line-height: 0.3rem;
               border-top: 1px solid #e6e6e6;
               color: #999;
               text-align: right;
-              font-size: .26rem;
+              font-size: 0.26rem;
             }
           }
         }

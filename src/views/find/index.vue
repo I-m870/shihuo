@@ -1,10 +1,12 @@
 <template>
-  <div class="find">
-    <Banner/>
-    <Block/>
-    <HotBlock/>
-    <List/>
-  </div>
+  <BScroll>
+    <div class="find">
+      <Banner/>
+      <Block/>
+      <HotBlock/>
+      <List/>
+    </div>
+  </BScroll>
 </template>
 
 <script>
@@ -27,5 +29,6 @@ export default {
 <style scoped lang="scss">
 .find {
   background: #fff !important;
+  padding-bottom: 0.9rem;
 }
 </style>

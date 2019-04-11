@@ -1,128 +1,116 @@
 <template>
   <div class="index">
-    <div class="search_bar">
-      <form
-        class="searchBox"
-        id="searchBox"
-        action="//m.shihuo.cn/search/searchResult/all"
-        method="get"
-      >
-        <div class="search_box">
-          <div class="search">
-            <input id="searchVal" class="input" name="keywords" placeholder="搜索商品，品牌" type="text">
-            <a href="javascript:;" class="me">
-              <img
-                src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/homefis/widget/header/me_0442d1d.png"
-                alt
-              >
+    <div>
+      <div class="search_bar">
+        <form
+          class="searchBox"
+          id="searchBox"
+          action="//m.shihuo.cn/search/searchResult/all"
+          method="get"
+        >
+          <div class="search_box">
+            <div class="search">
+              <input id="searchVal" class="input" name="keywords" placeholder="搜索商品，品牌" type="text">
+              <a href="javascript:;" class="me">
+                <img
+                  src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/homefis/widget/header/me_0442d1d.png"
+                  alt
+                >
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="swiper-container banner" ref="banner">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="items in banner">
+            <a :href="items.href">
+              <img :src="items.img">
             </a>
           </div>
         </div>
-      </form>
-    </div>
-    <div class="swiper-container banner" ref="banner">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="items in banner">
-          <a :href="items.href">
-            <img :src="items.img">
-          </a>
-        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
       </div>
-      <!-- 如果需要分页器 -->
-      <div class="swiper-pagination"></div>
-    </div>
-    <div class="pic_banner">
-      <router-link
-        tag="div"
-        :to="{name:'zhuanqu',params:{head:item.biaoti+'专区'}}"
-        class="list"
-        v-for="item in pic_banner"
-      >
-        <div class="text">
-          <h2>{{item.biaoti}}</h2>
-          <p>{{item.miaoshu}}</p>
-        </div>
-        <img :src="item.img" alt>
-      </router-link>
-    </div>
-    <div class="hot">
-      <router-link to="/sale" tag="div" class="sale">
-        <h2>今日优惠</h2>
-        <p>EQT 5折好价</p>
-        <img
-          src="http://shihuo.hupucdn.com/appHome/201807/1811/1d039f64648d5e33025c747ec6420060.jpg?imageView2/2/w/120/h/120/interlace/1"
-          alt
+      <div class="pic_banner">
+        <router-link
+          tag="div"
+          :to="{name:'zhuanqu',params:{head:item.biaoti+'专区'}}"
+          class="list"
+          v-for="item in pic_banner"
         >
-      </router-link>
-      <router-link class="sale" tag="div" :to="{name:'tuangou',params:{head:this.head}}">
-        <h2>限时团购</h2>
-        <p>春节不打烊</p>
-        <img
-          src="http://shihuo.hupucdn.com/appHome/201802/0716/5d0eea37252cd190ba0975b3e5e1f49e.png?imageView2/2/w/120/h/120/interlace/1"
-          alt
-        >
-      </router-link>
-      <a class="sale" href="http://m.shihuo.cn/haitao/index#qk=haitao">
-        <h2>一键海淘</h2>
-        <p>卡西欧黑金249元</p>
-        <img
-          src="http://shihuo.hupucdn.com/appHome/201807/1310/f975458f8da63b0769796aba49271e1c.jpg?imageView2/2/w/120/h/120/interlace/1"
-          alt
-        >
-      </a>
-    </div>
-    <HotActive v-bind:active="this.hot_active"/>
-    <div id="listView">
-      <div class="listView-top">
-        <list/>
-        <div class="list-menu">
-          <div class="on">全部</div>
-          <div>单品推荐</div>
-          <div>原创精选</div>
-          <div>用户晒物</div>
-        </div>
+          <div class="text">
+            <h2>{{item.biaoti}}</h2>
+            <p>{{item.miaoshu}}</p>
+          </div>
+          <img :src="item.img" alt>
+        </router-link>
       </div>
-      <div class="list-view">
-        <div class="list-top">
+      <div class="hot">
+        <router-link to="/sale" tag="div" class="sale">
+          <h2>今日优惠</h2>
+          <p>EQT 5折好价</p>
           <img
-            class="t-img"
-            src="http://shihuo.hupucdn.com/article/2019-03-27/032b2c21edb258d2c953e67d2f50a179.jpg?imageView2/0/w/600/h/600/interlace/1"
+            src="http://shihuo.hupucdn.com/appHome/201807/1811/1d039f64648d5e33025c747ec6420060.jpg?imageView2/2/w/120/h/120/interlace/1"
             alt
           >
-          <div class="text">
-            <h2>这双Air Max 97凭什么让陈冠希连连称赞</h2>
-            <div class="person">
-              <img src="http://shihuo.hupucdn.com/153308972510911.jpg" alt>
-              <h3>保罗皮尔斯凯文加内特</h3>
-            </div>
-            <div class="bottom">潮鞋志</div>
+        </router-link>
+        <router-link class="sale" tag="div" :to="{name:'tuangou',params:{head:this.head}}">
+          <h2>限时团购</h2>
+          <p>春节不打烊</p>
+          <img
+            src="http://shihuo.hupucdn.com/appHome/201802/0716/5d0eea37252cd190ba0975b3e5e1f49e.png?imageView2/2/w/120/h/120/interlace/1"
+            alt
+          >
+        </router-link>
+        <a class="sale" href="http://m.shihuo.cn/haitao/index#qk=haitao">
+          <h2>一键海淘</h2>
+          <p>卡西欧黑金249元</p>
+          <img
+            src="http://shihuo.hupucdn.com/appHome/201807/1310/f975458f8da63b0769796aba49271e1c.jpg?imageView2/2/w/120/h/120/interlace/1"
+            alt
+          >
+        </a>
+      </div>
+      <HotActive v-bind:active="this.hot_active"/>
+      <div id="listView">
+        <div class="listView-top">
+          <list/>
+          <div class="list-menu">
+            <div class="on">全部</div>
+            <div>单品推荐</div>
+            <div>原创精选</div>
+            <div>用户晒物</div>
           </div>
         </div>
-
-        <a class="list-second" v-for="(item,index) in info" :href="item.data.href">
-          <img class="t-img" :src="item.data.img" alt>
-          <div class="text">
-            <h2>{{item.data.title}}</h2>
-            <h3>
-              <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">
-              {{item.data.intro}}
-              <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png">
-            </h3>
-            <div class="bottom">
-              <div class="left">
-                {{item.data.merchant}}
-                <span>￥{{item.data.price}}</span>
+        <div class="list-view">
+          <a class="list-second" v-for="(item,index) in info" :href="item.data.href">
+            <img class="t-img" :src="item.data.img" alt>
+            <div class="text">
+              <h2>{{item.data.title}}</h2>
+              <h3>
+                <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">
+                {{item.data.intro}}
+                <img
+                  src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png"
+                >
+              </h3>
+              <div class="bottom">
+                <div class="left">
+                  {{item.data.merchant}}
+                  <span>￥{{item.data.price}}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
 
-        <div class="list-sale">
-          <h2>今日优惠</h2>
-          <div class="pic">
-            <a v-for="items in youhui" :href="items.href">
-              <img :src="items.img" alt>
-            </a>
+          <div class="list-sale">
+            <h2>今日优惠</h2>
+            <div class="pic">
+              <a v-for="items in youhui" :href="items.href">
+                <img :src="items.img" alt>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -134,12 +122,13 @@
 import Vuex from "vuex";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
+import BScroll from "better-scroll";
 
 export default {
   name: "first",
   data() {
     return {
-      head:"识货-团购",
+      head: "识货-团购",
       pic_banner: [
         {
           biaoti: "篮球",
@@ -252,6 +241,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .index {
+  height: 100%;
+  position: relative;
+  z-index: 99;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -304,6 +296,7 @@ export default {
   .banner {
     height: 3.8rem;
     width: 100%;
+    overflow: initial !important;
     a {
       display: block;
       width: 100%;
@@ -483,7 +476,7 @@ export default {
   justify-content: space-between;
   border-bottom: 1px solid #e6e6e6;
   padding: 0.20011rem 0;
-  img {
+  .t-img {
     width: 2.13113rem;
     height: 2.13113rem;
     margin-right: 0.20011rem;

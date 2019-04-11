@@ -44,20 +44,23 @@ export default {
 
 <style scoped lang="scss">
 .banner {
-  height: 2.7014rem;
-  width: 100%;
+  height: 2.68rem;
+  z-index: 90 !important;
   a {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 7.5rem;
+    height: 2.68rem;
+    z-index: 90 !important;
     img {
-      width: 100%;
-      height: 100%;
+      width: 7.5rem;
+      height: 2.68rem;
+      z-index: 90 !important;
     }
   }
   .swiper-pagination {
     text-align: right;
     padding-right: 0.2rem;
+    z-index: 91 !important;
   }
 }
 </style>

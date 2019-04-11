@@ -4,6 +4,7 @@ export default {
     name: "more",
 
     meta: {
-        tabBarflag: true
+        tabBarflag: true,
+        title:"更多"
     }
 }

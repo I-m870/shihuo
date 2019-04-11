@@ -41,18 +41,19 @@ export default {
     })
   },
   created() {
-    // console.log(this.infoList);
     this.$store.dispatch("Equipment/getInfo");
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .new {
-  margin-left: 0.55rem;
+  padding-left: 0.55rem;
   margin-top: 0.2rem;
   font-size: 0.32rem;
+  background: #fff;
 }
 .list-second {
+  background: #fff;
   height: 2.66112rem;
   display: flex;
   justify-content: space-between;

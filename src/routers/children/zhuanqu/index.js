@@ -3,6 +3,7 @@ export default {
     component: () => import("@/views/children/zhuanqu"),
     name: "zhuanqu",
     meta: {
-        tabBarFlag: false
+        tabBarFlag: false,
+        title:"专区"
     }
 }
