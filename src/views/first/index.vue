@@ -1,5 +1,6 @@
 <template>
   <div class="index">
+    <!-- <Loading v-show="isLoading"/> -->
     <div>
       <div class="search_bar">
         <form
@@ -84,25 +85,9 @@
           </div>
         </div>
         <div class="list-view">
-          <a class="list-second" v-for="(item,index) in info" :href="item.data.href">
-            <img class="t-img" :src="item.data.img" alt>
-            <div class="text">
-              <h2>{{item.data.title}}</h2>
-              <h3>
-                <img src="//sh1.hoopchina.com.cn/images/trademobile/quote_left.png">
-                {{item.data.intro}}
-                <img
-                  src="//sh1.hoopchina.com.cn/images/trademobile/quote_right.png"
-                >
-              </h3>
-              <div class="bottom">
-                <div class="left">
-                  {{item.data.merchant}}
-                  <span>￥{{item.data.price}}</span>
-                </div>
-              </div>
-            </div>
-          </a>
+          <div>
+            <FList/>
+          </div>
 
           <div class="list-sale">
             <h2>今日优惠</h2>
@@ -128,6 +113,7 @@ export default {
   name: "first",
   data() {
     return {
+      isLoading: true,
       head: "识货-团购",
       pic_banner: [
         {
@@ -216,6 +202,11 @@ export default {
   created() {
     this.$store.dispatch("Index/getIndexActions");
   },
+  watch: {
+    info() {
+      this.isLoading = false;
+    }
+  },
   computed: {
     ...Vuex.mapState({
       info: state => state.Index.data,
@@ -296,7 +287,7 @@ export default {
   .banner {
     height: 3.8rem;
     width: 100%;
-    overflow: initial !important;
+    // overflow: initial !important;
     a {
       display: block;
       width: 100%;
@@ -398,7 +389,7 @@ export default {
       }
     }
     .list-view {
-      padding: 0.20011rem 0.20011rem 0;
+      padding: 0 0.20011rem ;
       .list-top {
         height: 2.66112rem;
         display: flex;
@@ -447,6 +438,7 @@ export default {
       }
 
       .list-sale {
+        overflow: hidden;
         height: 2.66112rem;
         margin: 0.1rem 0;
         padding-left: 0.20011rem;
@@ -456,7 +448,7 @@ export default {
         }
         .pic {
           display: flex;
-          justify-content: space-around;
+          justify-content: start;
           a {
             img {
               display: block;
